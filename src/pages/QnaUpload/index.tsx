@@ -59,7 +59,7 @@ function QuestionUpload() {
     const response = await getParentTagData(+e.target.value);
 
     const { childTags } = response.data;
-
+    
     setChild(childTags);
     setQuery([]);
   };
@@ -130,7 +130,7 @@ function QuestionUpload() {
             onChange={getChild}
           >
             <option value="default">선택</option>
-            {tags?.slice(1)?.map((item) => (
+            {tags && tags.map((item) => (
               <option key={item.parentTagId} value={item.parentTagId}>
                 {item.name}
               </option>

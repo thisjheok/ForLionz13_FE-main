@@ -14,12 +14,11 @@ import { theme } from "../../styles/theme/theme";
 import { ThemeContext } from "../../context/IsDark/IsDark";
 
 function Qna() {
-  const [category, setCategory] = useState<number>(0);
+  const [category, setCategory] = useState<number>(1);
 
   const { data: tags } = useTags();
   const navigate = useNavigate();
   const location = useLocation();
-
   const title = tags?.find((item) => item.parentTagId === category)?.name;
   const { childTags, data, query, setQuery } = useSelectedData(category);
   const { isDark } = useContext(ThemeContext);

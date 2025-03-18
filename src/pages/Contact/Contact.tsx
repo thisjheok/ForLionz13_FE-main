@@ -13,7 +13,8 @@ function Contact() {
   const { isDark } = useContext(ThemeContext);
 
   const data = useFilteredMember(selectedToggle);
-  if (!data) return;
+  console.log(data);
+  if (!data) return null;
 
   return (
     <Styled.Wrapper>
@@ -24,7 +25,7 @@ function Contact() {
       <ItemContextProvider>
         <Styled.Items>
           {data
-            .filter((item) => +item.id !== ID.ADMIN)
+            .filter((item) => item && item.id && +item.id !== ID.ADMIN)
             ?.map((item) => (
               <Item
                 key={item.id}
